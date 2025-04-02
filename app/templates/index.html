@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Analytics Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <h1>Movie Analytics Dashboard</h1>
+
+    <div class="container">
+        <section id="source-a" class="column">
+            <h2>Source A (CSV)</h2>
+            <form id="source-a-form" method="post">
+                <label for="start_year_a">Start Year:</label>
+                <input type="number" id="start_year_a" name="start_year_a" required><br><br>
+
+                <label for="end_year_a">End Year:</label>
+                <input type="number" id="end_year_a" name="end_year_a"><br><br>
+
+                <label for="avg_votes_a">Minimum Average Votes:</label>
+                <input type="number" id="avg_votes_a" name="avg_votes_a" step="0.1"><br><br>
+
+                <label for="language_a">Language:</label>
+                <input type="text" id="language_a" name="language_a"><br><br>
+
+                <button type="submit">Submit Source A</button>
+            </form>
+        </section>
+
+        <section id="source-b" class="column">
+            <h2>Source B (TMDb API)</h2>
+            <form id="source-b-form" method="post">
+                <label for="start_year_b">Start Year:</label>
+                <input type="number" id="start_year_b" name="start_year_b" required><br><br>
+
+                <label for="end_year_b">End Year:</label>
+                <input type="number" id="end_year_b" name="end_year_b"><br><br>
+
+                <label for="genres_b">Genres (comma-separated):</label>
+                <input type="text" id="genres_b" name="genres_b"><br><br>
+
+                <label for="min_rating_b">Minimum Rating:</label>
+                <input type="number" id="min_rating_b" name="min_rating_b" step="0.1"><br><br>
+
+                <button type="submit">Submit Source B</button>
+            </form>
+        </section>
+    </div>
+
+    <section id="visualizations">
+        <h2>Visualizations</h2>
+        <div class="visualization-container">
+            <div class="chart-container">
+                <label for="genre-filter">Filter by Genre:</label>
+                <select id="genre-filter">
+                    <option value="all">All Genres</option>
+                    <!-- Genre options will be added here dynamically -->
+                </select>
+                <div id="time-series-chart"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
